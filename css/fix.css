@@ -1,0 +1,1059 @@
+/* Load FontAwesome 4 and 5 from reliable CDN */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+
+/* ============================================================ */
+/* DESKTOP: Hide hamburger menu trigger - only show on mobile   */
+/* ============================================================ */
+@media (min-width: 1200px) {
+
+    /* Hide hamburger / mobile menu trigger on desktop completely */
+    .btHorizontalMenuTrigger,
+    .btVerticalMenuTrigger,
+    .customMenuTrigger,
+    .customHandled,
+    .btVerticalHeaderTop {
+        display: none !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
+    }
+
+    /* Clear header background color for btAccentLightHeader pages when not sticky */
+    .btAccentLightHeader:not(.btStickyHeaderActive) .mainHeader {
+        background-color: transparent !important;
+    }
+
+    /* Ensure dropdowns work on hover on desktop */
+    .menuPort nav>ul>li:hover>ul.sub-menu {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+
+    /* Hide the custom subToggler spans in desktop nav */
+    .menuPort nav>ul>li>span.subToggler,
+    .menuPort nav>ul>li>div.subToggler {
+        display: none !important;
+    }
+}
+
+
+/* Fix white background on mobile menu area */
+@media (max-width: 991px) {
+    .btBelowLogoArea {
+        background-color: transparent !important;
+    }
+
+    body.btMobileMenuOpen .btBelowLogoArea {
+        background-color: #191919 !important;
+    }
+}
+
+
+/* ── Mobile Header: Hamburger + Logo on ONE Line ───────────── */
+@media (max-width: 991px) {
+
+    /* Make the top header bar a single flex row */
+    .btVerticalHeaderTop {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        padding: 10px 16px !important;
+        background: #191919 !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        min-height: 60px !important;
+    }
+
+    /* Hamburger trigger — inline-flex so icon centers inside it */
+    .btVerticalHeaderTop .btVerticalMenuTrigger,
+    .btVerticalHeaderTop .customMenuTrigger {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        flex-shrink: 0 !important;
+        width: 44px !important;
+        height: 44px !important;
+        cursor: pointer !important;
+        pointer-events: auto !important;
+        z-index: 99999 !important;
+        position: relative !important;
+        order: 2 !important;
+        /* hamburger on RIGHT side */
+    }
+
+    /* Hamburger icon size */
+    .btVerticalHeaderTop .btVerticalMenuTrigger .bt_bb_icon_holder:before,
+    .btVerticalHeaderTop .customMenuTrigger .bt_bb_icon_holder:before {
+        font-size: 28px !important;
+        color: #c3a660 !important;
+        line-height: 1 !important;
+    }
+
+    /* Logo area takes remaining space, left aligned */
+    .btVerticalHeaderTop .btLogoArea {
+        display: flex !important;
+        align-items: center !important;
+        flex: 1 !important;
+        order: 1 !important;
+    }
+
+    .btVerticalHeaderTop .btLogoArea .logo {
+        display: flex !important;
+        align-items: center !important;
+    }
+
+    .btVerticalHeaderTop .btLogoArea .logo img {
+        max-height: 48px !important;
+        width: auto !important;
+    }
+
+    /* ONLY show the main logo, hide the alt logo on mobile top bar */
+    .btVerticalHeaderTop .btLogoArea .logo img.btMainLogo {
+        display: block !important;
+    }
+
+    .btVerticalHeaderTop .btLogoArea .logo img.btAltLogo {
+        display: none !important;
+    }
+
+    /* Remove the rogue &nbsp; space next to the hamburger */
+    .btVerticalHeaderTop .btVerticalMenuTrigger>br,
+    .btVerticalHeaderTop .btHorizontalMenuTrigger>br {
+        display: none !important;
+    }
+}
+
+/* ── Fix Duplicate Logo on Mobile ─────────────────────────── */
+@media (max-width: 991px) {
+
+    /* The mainHeader contains a 2nd logo — hide ALL of them inside it */
+    header.mainHeader .btLogoArea,
+    header.mainHeader .btLogoArea.menuHolder,
+    header.mainHeader .btLogoArea.menuHolder.btClear,
+    header.mainHeader .logo,
+    .mainHeader .btLogoArea,
+    .mainHeader .logo,
+    .mainHeaderInner>.btLogoArea {
+        display: none !important;
+        visibility: hidden !important;
+        height: 0 !important;
+        overflow: hidden !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    /* Keep mainHeader itself alive for the mobile nav popup */
+    .mainHeader,
+    .mainHeaderInner {
+        background: transparent !important;
+        box-shadow: none !important;
+        min-height: 0 !important;
+        padding: 0 !important;
+    }
+}
+
+/* Hero Section - no background image on the section itself */
+#bt_bb_section67d5665b10697,
+#bt_bb_section69a677467aa7a {
+    background-image: none !important;
+    background-color: #222222 !important;
+    min-height: 450px !important;
+}
+
+/* Mobile Header Gap Fix */
+@media (max-width: 991px) {
+
+    .btContentWrap,
+    .btContentHolder,
+    .btContent,
+    .btPageWrap {
+        padding-top: 0 !important;
+        margin-top: 0 !important;
+        transform: none !important;
+        top: 0 !important;
+    }
+
+    /* Mobile menu open state */
+    .btBelowLogoArea {
+        display: none;
+        overflow: hidden;
+    }
+
+    body.btMobileMenuOpen .btBelowLogoArea {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 100vh !important;
+        z-index: 1000 !important;
+        overflow-y: auto !important;
+        padding-top: 100px !important;
+        background-color: #191919 !important;
+        -webkit-overflow-scrolling: touch !important;
+    }
+
+    /* Force link visibility on mobile menu */
+    .btBelowLogoArea .menuPort,
+    .btBelowLogoArea .menuPort nav,
+    .btBelowLogoArea .menuPort nav>ul {
+        display: block !important;
+        width: 100% !important;
+    }
+
+    .btBelowLogoArea .menuPort ul li {
+        width: 100% !important;
+        display: block !important;
+        position: relative !important;
+        background: transparent !important;
+    }
+
+    .btBelowLogoArea .menuPort ul li a,
+    .btBelowLogoArea .menuPort ul li a span {
+        color: #ffffff !important;
+        font-size: 1.2rem !important;
+        font-weight: 500 !important;
+        padding: 18px 25px !important;
+        display: block !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+        text-align: left !important;
+        background: transparent !important;
+    }
+
+    /* Highlight the current active menu item */
+    .btBelowLogoArea .menuPort ul li.current-menu-item > a,
+    .btBelowLogoArea .menuPort ul li.current-menu-ancestor > a,
+    .btBelowLogoArea .menuPort ul li.current_page_item > a {
+        background-color: rgba(195, 166, 96, 0.1) !important;
+        color: #c3a660 !important;
+    }
+
+    /* Sub-menu text color */
+    .btBelowLogoArea .menuPort ul ul li a {
+        padding-left: 45px !important;
+        font-size: 1rem !important;
+        background-color: rgba(0, 0, 0, 0.3) !important;
+    }
+
+    /* Hide ALL theme default arrows in mobile menu */
+    .btBelowLogoArea .menuPort nav ul li.menu-item-has-children > a::after,
+    .btBelowLogoArea .menuPort nav ul li.menu-item-has-children > a:after,
+    .btBelowLogoArea .menuPort nav ul li.menu-item-has-children::after,
+    .btBelowLogoArea .menuPort nav ul li.menu-item-has-children:after,
+    .subToggler:before,
+    .subToggler::before,
+    .btBelowLogoArea .subToggler:before,
+    .btBelowLogoArea .subToggler::before,
+    li.menu-item-has-children .subToggler:before,
+    li.menu-item-has-children .subToggler::before {
+        display: none !important;
+        content: "" !important;
+        visibility: hidden !important;
+        width: 0 !important;
+        height: 0 !important;
+        opacity: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        font-size: 0 !important;
+        position: absolute !important;
+        left: -9999px !important;
+    }
+
+    /* Sub-menu toggler positioning and color */
+    .btBelowLogoArea .subToggler {
+        color: #c3a660 !important;
+        width: 60px !important;
+        height: 56px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+
+    /* Explicitly handle only ONE arrow on the toggler */
+    .btBelowLogoArea .subToggler:after,
+    .btBelowLogoArea .subToggler::after {
+        content: '\f107' !important;
+        font-family: 'FontAwesome' !important;
+        color: #c3a660 !important;
+        font-size: 24px !important;
+        display: block !important;
+    }
+
+    /* Force trigger visibility and layering */
+    .btVerticalMenuTrigger,
+    .btHorizontalMenuTrigger,
+    .customMenuTrigger {
+        position: relative !important;
+        z-index: 99999 !important;
+        cursor: pointer !important;
+        display: inline-block !important;
+        pointer-events: auto !important;
+    }
+
+    /* Enlarge the hamburger icon */
+    .btVerticalMenuTrigger .bt_bb_icon_holder:before,
+    .btHorizontalMenuTrigger .bt_bb_icon_holder:before,
+    .customMenuTrigger .bt_bb_icon_holder:before {
+        font-size: 42px !important;
+    }
+
+
+    /* Standard Hamburger Bars (Closed State) - Gold Theme */
+    .bt_bb_icon::before,
+    .bt_bb_icon::after {
+        border-top-color: #c3a660 !important;
+    }
+
+    /* Hide original triggers and theme close buttons when menu is open */
+    body.btMobileMenuOpen .btHorizontalMenuTrigger,
+    body.btMobileMenuOpen .btVerticalMenuTrigger,
+    body.btMobileMenuOpen .customMenuTrigger,
+    body.btMobileMenuOpen .btCloseVertical,
+    body.btMobileMenuOpen .btCloseHorizontal,
+    body.btMobileMenuOpen .btCloseMenu {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+    }
+
+    /* Custom Back Button inside the opened menu - Clean & Premium */
+    .btCustomMobileBack {
+        position: fixed !important;
+        right: 20px !important;
+        top: 20px !important;
+        z-index: 1000000 !important;
+        cursor: pointer !important;
+        display: none;
+        width: 50px !important;
+        height: 50px !important;
+        text-align: center !important;
+        background: #191919 !important;
+        border: 2px solid #c3a660 !important;
+        border-radius: 50% !important;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5) !important;
+    }
+
+    body.btMobileMenuOpen .btCustomMobileBack {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+
+    .btCustomMobileBack span:before {
+        content: "\f104" !important;
+        font-family: "FontAwesome" !important;
+        color: #c3a660 !important;
+        font-size: 32px !important;
+        font-weight: 900 !important;
+        display: block !important;
+        line-height: 1 !important;
+    }
+
+    /* Remove ALL default close buttons. Keep triggers untouched unless menu open. */
+    .btCloseVertical,
+    .btCloseHorizontal,
+    .btCloseMenu,
+    .btSearchInnerClose,
+    [data-ico-fa*="f00d"],
+    *[data-ico-fa*="f00d"] {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+    }
+
+    /* Hide stray icons ONLY inside the nav/menu content, NOT inside the header triggers */
+    .btBelowLogoArea nav .bt_bb_icon,
+    .btVerticalMenuHolder .bt_bb_icon {
+        display: none !important;
+    }
+
+    /* Sub-menu visibility on mobile when 'on' class is added */
+    .sub-menu {
+        display: none;
+    }
+
+    li.on>.sub-menu {
+        display: block;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+}
+
+/* ============================================================ */
+/* 2. ICON SYSTEM MAPPING                                       */
+/* ============================================================ */
+
+/* Primary Icon Mappings for HTML Attributes */
+
+/* Font Awesome 4 Mappings */
+*[data-ico-fa]:before,
+*[data-ico-fontawesome]:before {
+    font-family: "FontAwesome" !important;
+    content: attr(data-ico-fa) !important;
+}
+
+*[data-ico-fontawesome]:before {
+    content: attr(data-ico-fontawesome) !important;
+}
+
+/* Font Awesome 5 Mappings */
+*[data-ico-fontawesome5solid]:before,
+*[data-ico-fa5_solid]:before,
+*[data-ico-fa5s]:before {
+    font-family: "Font Awesome 5 Free" !important;
+    font-weight: 900 !important;
+    content: attr(data-ico-fontawesome5solid) !important;
+}
+
+*[data-ico-fa5_solid]:before {
+    content: attr(data-ico-fa5_solid) !important;
+}
+
+*[data-ico-fa5s]:before {
+    content: attr(data-ico-fa5s) !important;
+}
+
+*[data-ico-fontawesome5regular]:before,
+*[data-ico-fa5_regular]:before,
+*[data-ico-fa5r]:before {
+    font-family: "Font Awesome 5 Free" !important;
+    font-weight: 400 !important;
+    content: attr(data-ico-fontawesome5regular) !important;
+}
+
+*[data-ico-fa5_regular]:before {
+    content: attr(data-ico-fa5_regular) !important;
+}
+
+*[data-ico-fa5r]:before {
+    content: attr(data-ico-fa5r) !important;
+}
+
+*[data-ico-fontawesome5brands]:before,
+*[data-ico-fa5_brands]:before,
+*[data-ico-fa5b]:before {
+    font-family: "Font Awesome 5 Brands" !important;
+    content: attr(data-ico-fontawesome5brands) !important;
+}
+
+*[data-ico-fa5_brands]:before {
+    content: attr(data-ico-fa5_brands) !important;
+}
+
+*[data-ico-fa5b]:before {
+    content: attr(data-ico-fa5b) !important;
+}
+
+/* Ensure icons are displayed correctly */
+.bt_bb_icon_holder:before {
+    display: inline-block !important;
+    font-style: normal !important;
+    font-variant: normal !important;
+    text-rendering: auto !important;
+    -webkit-font-smoothing: antialiased !important;
+}
+
+
+/* ============================================================ */
+/* 4. THEME-SPECIFIC CUSTOM FONTS                               */
+/* ============================================================ */
+
+@font-face {
+    font-family: "AnalyticsAndInvestment";
+    src: url("../fonts/AnalyticsAndInvestment.woff") format("woff"), url("https://a2zaccountant.co.uk/wp-content/themes/avantage/fonts/AnalyticsAndInvestment/AnalyticsAndInvestment.woff") format("woff");
+}
+
+@font-face {
+    font-family: "BusinessPeople";
+    src: url("../fonts/BusinessPeople.woff") format("woff"), url("https://a2zaccountant.co.uk/wp-content/themes/avantage/fonts/BusinessPeople/BusinessPeople.woff") format("woff");
+}
+
+@font-face {
+    font-family: "Economy";
+    src: url("../fonts/Economy.woff") format("woff"), url("https://a2zaccountant.co.uk/wp-content/themes/avantage/fonts/Economy/Economy.woff") format("woff");
+}
+
+@font-face {
+    font-family: "Essential";
+    src: url("../fonts/Essential.woff") format("woff"), url("https://a2zaccountant.co.uk/wp-content/themes/avantage/fonts/Essential/Essential.woff") format("woff");
+}
+
+@font-face {
+    font-family: "TaxesAccounting";
+    src: url("../fonts/TaxesAccounting.woff") format("woff"), url("https://a2zaccountant.co.uk/wp-content/themes/avantage/fonts/TaxesAccounting/TaxesAccounting.woff") format("woff");
+}
+
+@font-face {
+    font-family: "BusinessManagement";
+    src: url("../fonts/BusinessManagement.woff") format("woff"), url("https://a2zaccountant.co.uk/wp-content/themes/avantage/fonts/BusinessManagement/BusinessManagement.woff") format("woff");
+}
+
+/* Explicit Mapping for Theme Fonts */
+*[data-ico-analyticsandinvestment]:before {
+    font-family: AnalyticsAndInvestment !important;
+    content: attr(data-ico-analyticsandinvestment);
+}
+
+*[data-ico-avantage]:before {
+    font-family: Avantage !important;
+    content: attr(data-ico-avantage);
+}
+
+*[data-ico-business]:before {
+    font-family: Business !important;
+    content: attr(data-ico-business);
+}
+
+*[data-ico-businessandfinance]:before {
+    font-family: BusinessAndFinance !important;
+    content: attr(data-ico-businessandfinance);
+}
+
+*[data-ico-businessmanagement]:before {
+    font-family: BusinessManagement !important;
+    content: attr(data-ico-businessmanagement);
+}
+
+*[data-ico-businessoffice]:before {
+    font-family: BusinessOffice !important;
+    content: attr(data-ico-businessoffice);
+}
+
+*[data-ico-businesspeople]:before {
+    font-family: BusinessPeople !important;
+    content: attr(data-ico-businesspeople);
+}
+
+*[data-ico-construction]:before {
+    font-family: Construction !important;
+    content: attr(data-ico-construction);
+}
+
+*[data-ico-corporatebusiness]:before {
+    font-family: CorporateBusiness !important;
+    content: attr(data-ico-corporatebusiness);
+}
+
+*[data-ico-corporatemanagement]:before {
+    font-family: CorporateManagement !important;
+    content: attr(data-ico-corporatemanagement);
+}
+
+*[data-ico-customerrelationshipmanagement]:before {
+    font-family: CustomerRelationshipManagement !important;
+    content: attr(data-ico-customerrelationshipmanagement);
+}
+
+*[data-ico-customerservice]:before {
+    font-family: CustomerService !important;
+    content: attr(data-ico-customerservice);
+}
+
+*[data-ico-design]:before {
+    font-family: Design !important;
+    content: attr(data-ico-design);
+}
+
+*[data-ico-development]:before {
+    font-family: Development !important;
+    content: attr(data-ico-development);
+}
+
+*[data-ico-digitalmarketing]:before {
+    font-family: DigitalMarketing !important;
+    content: attr(data-ico-digitalmarketing);
+}
+
+*[data-ico-economy]:before {
+    font-family: Economy !important;
+    content: attr(data-ico-economy);
+}
+
+*[data-ico-essential]:before {
+    font-family: Essential !important;
+    content: attr(data-ico-essential);
+}
+
+*[data-ico-globalbusiness]:before {
+    font-family: GlobalBusiness !important;
+    content: attr(data-ico-globalbusiness);
+}
+
+*[data-ico-humanresources]:before {
+    font-family: HumanResources !important;
+    content: attr(data-ico-humanresources);
+}
+
+*[data-ico-icon7stroke]:before {
+    font-family: Icon7Stroke !important;
+    content: attr(data-ico-icon7stroke);
+}
+
+*[data-ico-jobresume]:before {
+    font-family: JobResume !important;
+    content: attr(data-ico-jobresume);
+}
+
+*[data-ico-marketingandadvertising]:before {
+    font-family: MarketingAndAdvertising !important;
+    content: attr(data-ico-marketingandadvertising);
+}
+
+*[data-ico-productivity]:before {
+    font-family: Productivity !important;
+    content: attr(data-ico-productivity);
+}
+
+*[data-ico-science]:before {
+    font-family: Science !important;
+    content: attr(data-ico-science);
+}
+
+*[data-ico-socialmediaandnetwork]:before {
+    font-family: SocialMediaAndNetwork !important;
+    content: attr(data-ico-socialmediaandnetwork);
+}
+
+*[data-ico-taxes]:before {
+    font-family: Taxes !important;
+    content: attr(data-ico-taxes);
+}
+
+*[data-ico-taxesaccounting]:before {
+    font-family: TaxesAccounting !important;
+    content: attr(data-ico-taxesaccounting);
+}
+
+*[data-ico-teamwork2]:before {
+    font-family: TeamWork2 !important;
+    content: attr(data-ico-teamwork2);
+}
+
+*[data-ico-teamwork]:before {
+    font-family: Teamwork !important;
+    content: attr(data-ico-teamwork);
+}
+
+*[data-ico-transportation]:before {
+    font-family: Transportation !important;
+    content: attr(data-ico-transportation);
+}
+
+/* Ensure icons are displayed correctly and centered */
+.bt_bb_icon_holder {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    line-height: 1 !important;
+    text-align: center !important;
+}
+
+.bt_bb_icon_holder:before {
+    display: block !important;
+    font-style: normal !important;
+    font-variant: normal !important;
+    text-rendering: auto !important;
+    -webkit-font-smoothing: antialiased !important;
+    margin: 0 auto !important;
+}
+
+/* Mobile Sub-menu Toggler Styling */
+.subToggler {
+    display: flex !important;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 50px;
+    height: 50px;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000 !important;
+    pointer-events: auto !important;
+}
+
+.subToggler:after {
+    content: '\f107';
+    font-family: 'FontAwesome';
+    font-size: 20px;
+    color: #c3a660;
+    transition: transform 0.3s ease;
+}
+
+li.on>.subToggler:after {
+    transform: rotate(180deg);
+}
+
+.menu-item-has-children {
+    position: relative;
+}
+
+/* Fix for the section where image needs to be removed */
+.remove-left-image {
+    background-image: none !important;
+    background-color: #000000 !important;
+}
+
+/* ============================================================ */
+/* Anti-Shaking fix for desktop dropdown menu items             */
+/* ============================================================ */
+@media (min-width: 992px) {
+
+    .btMenuHorizontal .menuPort ul ul li a,
+    .btMenuHorizontal .menuPort ul ul li a:before,
+    .btMenuHorizontal .menuPort ul ul li a:after {
+        -webkit-transform: translateZ(0) !important;
+        transform: translateZ(0) !important;
+        -webkit-backface-visibility: hidden !important;
+        backface-visibility: hidden !important;
+        -webkit-font-smoothing: subpixel-antialiased !important;
+        will-change: transform;
+    }
+}
+
+
+/* ============================================================ */
+/* MOBILE UI ENHANCEMENT — ALL PAGES                           */
+/* STRICTLY @media (max-width: 991px) — NO DESKTOP CHANGES     */
+/* ============================================================ */
+@media (max-width: 991px) {
+
+    /* ── Global Layout & Margins ───────────────────────────── */
+    body {
+        overflow-x: hidden !important;
+    }
+
+    /* Target the main container - removed previously added side margins */
+    .bt_bb_port,
+    .bt_bb_section_fixed_width .bt_bb_port,
+    .bt_bb_row_width_boxed .bt_bb_port {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    /* ── Typography Enhancements ───────────────────────────── */
+    .bt_bb_headline h2,
+    .bt_bb_headline .bt_bb_headline_tag {
+        font-size: 1.6rem !important;
+        line-height: 1.25 !important;
+        margin-bottom: 0.5em !important;
+    }
+
+    .bt_bb_headline .bt_bb_headline_superheadline {
+        font-size: 0.85rem !important;
+        letter-spacing: 0.1em !important;
+        text-transform: uppercase !important;
+        color: #c3a660 !important;
+    }
+
+    .bt_bb_headline_subheadline {
+        font-size: 0.95rem !important;
+        line-height: 1.6 !important;
+        color: #555 !important;
+    }
+
+    /* Adjust dashes in headlines */
+    .bt_bb_headline.bt_bb_dash_bottom .bt_bb_headline_content:after {
+        border-bottom-color: #c3a660 !important;
+        width: 40px !important;
+    }
+
+    /* ── Feature Cards (Icon Boxes) ───────────────────────── */
+    .bt_bb_icon_box {
+        padding: 25px 20px !important;
+        background: #fff !important;
+        border-radius: 10px !important;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06) !important;
+        margin-bottom: 20px !important;
+    }
+
+    .bt_bb_icon_box .bt_bb_icon {
+        margin-bottom: 15px !important;
+    }
+
+    .bt_bb_icon_box .bt_bb_icon_box_content_title {
+        font-size: 1.1rem !important;
+        font-weight: 700 !important;
+    }
+
+    /* ── Hero Slider & Spacing ──────────────────────────────── */
+    .bt_bb_content_slider_item .bt_bb_column_inner {
+        padding-top: 30px !important;
+        padding-bottom: 30px !important;
+    }
+
+    .bt_bb_content_slider_item img.mobile-hero-image {
+        border-radius: 12px !important;
+        margin-bottom: 20px !important;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3) !important;
+    }
+
+    /* ── Subpages Hero Gap Fix (Shortens top gap) ────────────── */
+    .btContent .bt_bb_wrapper>.bt_bb_section:first-child,
+    .bt_bb_section_show_left_boxed_content {
+        padding-top: 80px !important;
+        /* Standardized fix for all subpages */
+    }
+
+    /* Remove redundant spacers from Hero sections on phone */
+    .bt_bb_section:first-child .bt_bb_separator.bt_bb_top_spacing_medium,
+    .bt_bb_section:first-child .bt_bb_separator.bt_bb_bottom_spacing_large {
+        display: none !important;
+    }
+
+    /* Proper spacing between columns in Hero on mobile */
+    .bt_bb_section:first-child .bt_bb_column {
+        padding-top: 10px !important;
+        margin-bottom: 30px !important;
+    }
+
+    /* ── Buttons ───────────────────────────────────────────── */
+    .bt_bb_button .bt_bb_link {
+        display: inline-block !important;
+        width: auto !important;
+        padding: 12px 25px !important;
+        font-size: 0.9rem !important;
+        font-weight: 700 !important;
+        border-radius: 30px !important;
+        text-transform: uppercase !important;
+    }
+
+    /* ── Section Spacing ───────────────────────────────────── */
+    .bt_bb_section:not(.bt_bb_top_spacing_none) {
+        padding-top: 3.5em !important;
+    }
+
+    .bt_bb_section:not(.bt_bb_bottom_spacing_none):not(.bt_bb_section_with_bottom_coverage_image) {
+        padding-bottom: 3.5em !important;
+    }
+
+    .bt_bb_section.bt_bb_section_with_bottom_coverage_image {
+        padding-bottom: 0 !important;
+        margin-bottom: 0 !important;
+    }
+
+    /* Reset some row paddings that might interfere */
+    .bt_bb_row {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+
+    /* ── Footer ────────────────────────────────────────────── */
+    .btSiteFooter,
+    .btSiteFooter .bt_bb_port {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        width: 100% !important;
+        max-width: none !important;
+    }
+
+    /* ── Get a Quote Section Centering – Index Page ──────── */
+    #bt_bb_section69a677468494c,
+    #bt_bb_section69a677468494c .bt_bb_headline {
+        text-align: center !important;
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+        box-sizing: border-box !important;
+    }
+
+    /* ── About Us Page Specific Paragraph-Image Gap ──────── */
+    /* Add gap between text and image on About Us mobile view */
+    .page-id-1569 .bt_bb_column.bt_bb_padding_double {
+        margin-bottom: 40px !important;
+    }
+
+    /* ── Mobile Header Background Color Fix ──────────────── */
+    .btVerticalHeaderTop {
+        height: 70px !important;
+        background: #fff !important;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+    }
+
+    .btLogoArea .logo img {
+        height: 50px !important;
+        width: auto !important;
+    }
+
+    /* ── Tabs Gap & Height Optimization ───────────────────── */
+    .bt_bb_tabs_header {
+        margin-bottom: 0 !important;
+        padding-bottom: 0 !important;
+    }
+
+    .bt_bb_tabs_header li {
+        height: auto !important;
+        margin-bottom: 0 !important;
+    }
+
+    .bt_bb_tabs_header li span {
+        padding: 8px 15px !important;
+        line-height: 1.1 !important;
+        font-size: 0.85rem !important;
+        display: block !important;
+        margin: 0 !important;
+    }
+
+    .bt_bb_tabs_tabs {
+        margin-top: -1px !important;
+    }
+
+    .bt_bb_tab_item .bt_bb_tab_content {
+        padding-top: 5px !important;
+    }
+
+    /* Remove extra space in inner rows within tabs */
+    .bt_bb_tab_item .bt_bb_row_inner {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+    }
+
+    /* ── Slider Pagination (Dots) Gap Fix ──────────────────── */
+    .slick-dots {
+        margin-top: 5px !important;
+        bottom: 10px !important;
+        line-height: 1 !important;
+    }
+
+    .slick-dots li {
+        margin: 0 4px !important;
+        height: auto !important;
+    }
+
+    /* Collapse dots spacing inside curved hero section */
+    .bt_bb_section_with_bottom_coverage_image .slick-dots {
+        position: static !important;
+        margin: 0 !important;
+        padding: 4px 0 0 0 !important;
+        line-height: 1 !important;
+    }
+
+    .bt_bb_section_with_bottom_coverage_image .bt_bb_content_slider {
+        padding-bottom: 0 !important;
+        margin-bottom: 0 !important;
+    }
+
+    /* The slider wrapper div that wraps the whole slider including dots */
+    .bt_bb_section_with_bottom_coverage_image .bt_bb_content_slider > div,
+    .bt_bb_section_with_bottom_coverage_image .slick-slider {
+        padding-bottom: 0 !important;
+        margin-bottom: 0 !important;
+    }
+
+    /* ── Contact Hero Image Gap Fix (Curved Section) ───────── */
+    .bt_bb_section_with_bottom_coverage_image,
+    .bt_bb_section_with_bottom_coverage_image .bt_bb_port,
+    .bt_bb_section_with_bottom_coverage_image .bt_bb_cell,
+    .bt_bb_section_with_bottom_coverage_image .bt_bb_cell_inner,
+    .bt_bb_section_with_bottom_coverage_image .bt_bb_row,
+    .bt_bb_section_with_bottom_coverage_image .bt_bb_row_holder,
+    .bt_bb_section_with_bottom_coverage_image .bt_bb_column {
+        padding-bottom: 0 !important;
+        margin-bottom: 0 !important;
+    }
+
+    .bt_bb_section_with_bottom_coverage_image .bt_bb_column_content {
+        margin-bottom: 0 !important;
+        padding-bottom: 0 !important;
+    }
+
+    .bt_bb_section_with_bottom_coverage_image .bt_bb_floating_element {
+        display: none !important;
+        /* Prevents floating elements from creating gaps */
+    }
+
+    .bt_bb_section_with_bottom_coverage_image .bt_bb_image {
+        margin-bottom: 0 !important;
+        padding-bottom: 0 !important;
+    }
+
+    /* Target the photo column to remove the white stripe bleed and excess padding */
+    .bt_bb_section_with_bottom_coverage_image .bt_bb_column[data-width="7"] {
+        padding: 0 !important;
+        background-color: transparent !important;
+    }
+
+    /* Target the main visible image to reset desktop margin and overlap the bottom dark space */
+    .bt_bb_section_with_bottom_coverage_image .bt_bb_image:not(.bt_bb_hidden_xs) {
+        margin-left: 0 !important;
+        /* Reset desktop negative margin */
+        margin-top: -20px !important;
+        /* Lift photo powerfully up */
+        margin-bottom: -50px !important;
+        /* Allow photo to stretch to its full natural height */
+        display: block !important;
+        position: relative !important;
+        z-index: 5 !important;
+    }
+
+    /* Keep the desktop vertical curve hidden on mobile */
+    .bt_bb_section_with_bottom_coverage_image .bt_bb_image.bt_bb_hidden_xs {
+        display: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    /* Ensure the white curve stays neatly layered above the pushed-down photo */
+    .bt_bb_section_bottom_section_coverage_image {
+        z-index: 10 !important;
+        position: absolute !important;
+        bottom: 0 !important;
+        pointer-events: none !important;
+    }
+
+    .bt_bb_section_with_bottom_coverage_image .bt_bb_image img {
+        margin-bottom: 0 !important;
+        padding-bottom: 0 !important;
+        display: block !important;
+    }
+
+    /* ── Index Page Slider Gap Fix (Curved Section) ───────── */
+    .bt_bb_section_with_bottom_coverage_image .bt_bb_content_slider,
+    .bt_bb_section_with_bottom_coverage_image .slick-slider,
+    .bt_bb_section_with_bottom_coverage_image .slick-list,
+    .bt_bb_section_with_bottom_coverage_image .slick-track,
+    .bt_bb_section_with_bottom_coverage_image .bt_bb_content_slider_item,
+    .bt_bb_section_with_bottom_coverage_image .bt_bb_content_slider_item_content {
+        margin-bottom: 0 !important;
+        padding-bottom: 0 !important;
+    }
+
+    /* Force ALL separators inside the hero slider to collapse */
+    .bt_bb_section_with_bottom_coverage_image .bt_bb_content_slider_item_content .bt_bb_separator {
+        margin-bottom: 0 !important;
+        height: 0 !important;
+        padding: 0 !important;
+    }
+
+    /* Zero out min-height on inner columns so they don't force extra space on mobile */
+    .bt_bb_section_with_bottom_coverage_image .bt_bb_column_inner {
+        min-height: 0 !important;
+        padding-bottom: 0 !important;
+        margin-bottom: 0 !important;
+    }
+
+    /* Collapse the column inner content padding */
+    .bt_bb_section_with_bottom_coverage_image .bt_bb_column_inner_content {
+        padding-bottom: 0 !important;
+        margin-bottom: 0 !important;
+    }
+
+    /* Hide the desktop-only image column (right side background column) on mobile */
+    .bt_bb_section_with_bottom_coverage_image .bt_bb_column_inner.bt_bb_hidden_xs,
+    .bt_bb_section_with_bottom_coverage_image .bt_bb_column_inner.bt_bb_hidden_ms {
+        display: none !important;
+    }
+
+    /* Pull the slider content up to close the remaining gap */
+    .bt_bb_section_with_bottom_coverage_image .bt_bb_content_slider_item_content {
+        margin-bottom: 0 !important;
+    }
+}
